@@ -13,377 +13,851 @@
 
     body {
       margin: 0;
-      font-family: Arial, "Noto Sans Thai", sans-serif;
+      font-family: "Noto Sans Thai", "Segoe UI", Arial, sans-serif;
       background: #fff8fc;
       color: #333;
     }
 
+    /* ===== HEADER ===== */
+
     header {
-      background: linear-gradient(135deg, #ff6fae, #b56cff);
+      background: linear-gradient(135deg, #f45ca5, #9d63e8);
       color: white;
-      padding: 35px 20px;
       text-align: center;
+      padding: 48px 20px 42px;
     }
 
     header h1 {
-      margin: 0 0 10px;
-      font-size: 30px;
+      margin: 0;
+      font-size: clamp(25px, 5vw, 40px);
+      font-weight: 700;
     }
 
     header p {
-      margin: 0;
+      margin: 12px 0 0;
       font-size: 16px;
+      opacity: 0.95;
     }
 
-    .nav {
+    /* ===== NAV ===== */
+
+    .nav-wrapper {
       position: sticky;
       top: 0;
       z-index: 100;
-      background: white;
-      padding: 12px;
+      background: rgba(255,255,255,0.96);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid #eee;
+      overflow-x: auto;
+    }
+
+    .nav {
+      max-width: 1100px;
+      margin: auto;
       display: flex;
       gap: 8px;
-      overflow-x: auto;
-      border-bottom: 1px solid #eee;
+      padding: 12px 16px;
+      white-space: nowrap;
     }
 
     .nav button {
       border: none;
-      background: #f3f3f3;
-      padding: 10px 16px;
-      border-radius: 20px;
+      background: #f3f3f5;
+      color: #444;
+      padding: 10px 18px;
+      border-radius: 30px;
       cursor: pointer;
-      white-space: nowrap;
       font-size: 14px;
+      transition: 0.2s;
+    }
+
+    .nav button:hover {
+      transform: translateY(-1px);
     }
 
     .nav button.active {
-      background: #ff5fa2;
+      background: linear-gradient(135deg, #f45ca5, #b05de8);
       color: white;
+      box-shadow: 0 4px 12px rgba(220,80,160,0.25);
     }
 
+    /* ===== CONTENT ===== */
+
     .container {
-      max-width: 1000px;
+      max-width: 1100px;
       margin: auto;
-      padding: 30px 20px;
+      padding: 45px 20px 60px;
+      min-height: 500px;
     }
 
     .page-title {
       text-align: center;
-      margin-bottom: 30px;
+      margin-bottom: 35px;
     }
 
     .page-title h2 {
-      margin-bottom: 8px;
+      margin: 0 0 10px;
+      font-size: 28px;
       color: #333;
     }
 
     .page-title p {
+      margin: 0;
       color: #777;
+      line-height: 1.7;
     }
+
+    /* ===== EP CARDS ===== */
 
     .ep-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
     }
 
     .ep-card {
       background: white;
-      border-radius: 18px;
-      padding: 24px;
-      box-shadow: 0 5px 20px rgba(0,0,0,0.06);
-      border: 1px solid #f0e6ee;
+      border: 1px solid #f0e3ec;
+      border-radius: 20px;
+      padding: 25px;
+      box-shadow: 0 8px 25px rgba(80,40,80,0.06);
+      transition: 0.25s;
+    }
+
+    .ep-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 14px 30px rgba(80,40,80,0.10);
     }
 
     .ep-number {
       display: inline-block;
-      background: #ffe2ef;
-      color: #e83f85;
-      padding: 6px 12px;
+      background: #ffe3f0;
+      color: #df4387;
+      padding: 6px 13px;
       border-radius: 20px;
       font-size: 13px;
-      font-weight: bold;
-      margin-bottom: 12px;
+      font-weight: 700;
+      margin-bottom: 14px;
     }
 
     .ep-card h3 {
-      margin: 5px 0 10px;
+      margin: 0 0 10px;
+      font-size: 19px;
     }
 
     .ep-card p {
       color: #777;
-      line-height: 1.6;
+      line-height: 1.7;
+      margin: 7px 0;
+    }
+
+    .prompt-count {
+      color: #d94282 !important;
+      font-size: 14px;
+      font-weight: 600;
+      margin-top: 15px !important;
     }
 
     .ep-card button {
       width: 100%;
-      margin-top: 12px;
+      margin-top: 16px;
       padding: 12px;
       border: none;
-      border-radius: 10px;
-      background: #ff5fa2;
-      color: white;
-      font-size: 15px;
+      border-radius: 12px;
+      background: #fff0f7;
+      color: #d83f80;
+      font-weight: 600;
       cursor: pointer;
+      transition: 0.2s;
+    }
+
+    .ep-card button:hover {
+      background: #f45ca5;
+      color: white;
+    }
+
+    /* ===== PROMPT PAGE ===== */
+
+    .back-link {
+      display: inline-block;
+      margin-bottom: 25px;
+      color: #d63f80;
+      cursor: pointer;
+      font-size: 14px;
     }
 
     .prompt-card {
       background: white;
-      border-radius: 18px;
-      padding: 22px;
-      margin-bottom: 20px;
-      box-shadow: 0 5px 20px rgba(0,0,0,0.06);
+      border: 1px solid #f0e3ec;
+      border-radius: 20px;
+      padding: 25px;
+      margin-bottom: 22px;
+      box-shadow: 0 8px 25px rgba(80,40,80,0.06);
+    }
+
+    .prompt-card h3 {
+      margin: 0 0 8px;
+      font-size: 20px;
+    }
+
+    .prompt-description {
+      color: #777;
+      line-height: 1.7;
+      margin-bottom: 15px;
     }
 
     .prompt-box {
-      background: #f7f7f9;
+      background: #f7f7fa;
+      border: 1px solid #ececf2;
+      border-radius: 14px;
       padding: 18px;
-      border-radius: 12px;
       white-space: pre-wrap;
-      line-height: 1.7;
-      margin: 15px 0;
+      line-height: 1.75;
       font-size: 14px;
+      color: #444;
+      overflow-x: auto;
     }
 
     .copy-btn {
-      background: #ff5fa2;
-      color: white;
+      margin-top: 14px;
       border: none;
+      background: linear-gradient(135deg, #f45ca5, #b05de8);
+      color: white;
       padding: 11px 20px;
       border-radius: 10px;
       cursor: pointer;
+      font-size: 14px;
+      font-weight: 600;
     }
+
+    .copy-btn:hover {
+      opacity: 0.9;
+    }
+
+    /* ===== EMPTY EP ===== */
+
+    .empty-card {
+      background: white;
+      border-radius: 20px;
+      padding: 45px 25px;
+      text-align: center;
+      border: 1px solid #f0e3ec;
+    }
+
+    .empty-card .icon {
+      font-size: 45px;
+      margin-bottom: 15px;
+    }
+
+    .empty-card h3 {
+      margin: 0 0 10px;
+    }
+
+    .empty-card p {
+      color: #777;
+    }
+
+    /* ===== FOOTER ===== */
 
     footer {
       text-align: center;
-      padding: 30px;
-      color: #888;
+      padding: 30px 20px;
+      color: #999;
       font-size: 13px;
+      border-top: 1px solid #eee;
+      background: white;
     }
 
-    @media (max-width: 600px) {
+    /* ===== MOBILE ===== */
+
+    @media (max-width: 800px) {
+
+      .ep-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+    }
+
+    @media (max-width: 560px) {
+
+      header {
+        padding: 35px 18px;
+      }
+
       header h1 {
-        font-size: 23px;
+        font-size: 24px;
+      }
+
+      header p {
+        font-size: 14px;
       }
 
       .container {
-        padding: 25px 15px;
+        padding: 32px 15px 50px;
       }
+
+      .ep-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .page-title h2 {
+        font-size: 24px;
+      }
+
+      .prompt-card {
+        padding: 20px;
+      }
+
     }
+
   </style>
 </head>
 
 <body>
 
-<header>
-  <h1>คลัง Prompt | ใช้ AI ให้ทำคลิปเงินล้าน</h1>
-  <p>รวม Prompt สำหรับเรียนและสร้างคลิปด้วย AI</p>
-</header>
+  <!-- HEADER -->
 
-<nav class="nav">
-  <button class="active" onclick="showPage('all')">รวม Prompt</button>
-  <button onclick="showPage('ep1')">EP.1</button>
-  <button onclick="showPage('ep2')">EP.2</button>
-  <button onclick="showPage('ep3')">EP.3</button>
-  <button onclick="showPage('ep4')">EP.4</button>
-  <button onclick="showPage('ep5')">EP.5</button>
-  <button onclick="showPage('ep6')">EP.6</button>
-</nav>
+  <header>
+    <h1>คลัง Prompt | ใช้ AI ให้ทำคลิปเงินล้าน</h1>
+    <p>รวม Prompt สำหรับเรียนและสร้างคลิปด้วย AI</p>
+  </header>
 
-<main class="container" id="content"></main>
 
-<footer>
-  © 2026 ครูแซนดร้า | AI Course
-</footer>
+  <!-- NAVIGATION -->
 
-<script>
+  <div class="nav-wrapper">
 
-const episodes = {
+    <nav class="nav">
 
-  ep1: {
-    title: "คิดไอเดียและเขียน Script",
-    description: "ใช้ AI ช่วยคิดไอเดียและเขียน Script สำหรับทำคลิป",
-    prompts: [
-      {
-        title: "Prompt สร้าง Script",
-        description: "ใช้สำหรับให้ AI ช่วยคิดและเขียน Script",
-        text: "ฉันต้องการทำคลิปเกี่ยวกับ [หัวข้อ]\\nกลุ่มเป้าหมายคือ [กลุ่มเป้าหมาย]\\nความยาว [จำนวนวินาที]\\nช่วยเขียน Script สำหรับสร้าง VDO ด้วย AI ให้ฉัน"
+      <button
+        id="nav-all"
+        class="active"
+        onclick="showPage('all')">
+        รวม Prompt
+      </button>
+
+      <button
+        id="nav-ep1"
+        onclick="showPage('ep1')">
+        EP.1
+      </button>
+
+      <button
+        id="nav-ep2"
+        onclick="showPage('ep2')">
+        EP.2
+      </button>
+
+      <button
+        id="nav-ep3"
+        onclick="showPage('ep3')">
+        EP.3
+      </button>
+
+      <button
+        id="nav-ep4"
+        onclick="showPage('ep4')">
+        EP.4
+      </button>
+
+      <button
+        id="nav-ep5"
+        onclick="showPage('ep5')">
+        EP.5
+      </button>
+
+      <button
+        id="nav-ep6"
+        onclick="showPage('ep6')">
+        EP.6
+      </button>
+
+    </nav>
+
+  </div>
+
+
+  <!-- CONTENT -->
+
+  <main
+    class="container"
+    id="content">
+  </main>
+
+
+  <!-- FOOTER -->
+
+  <footer>
+    © 2026 ครูแซนดร้า | AI Course
+  </footer>
+
+
+  <script>
+
+    /* ==========================================
+       ข้อมูล EP
+    ========================================== */
+
+    const episodes = {
+
+      ep1: {
+        number: "EP.1",
+        title: "คิดไอเดียและเขียน Script",
+        description:
+          "ใช้ AI ช่วยคิดไอเดีย เขียน Script และแบ่ง Script เป็นฉากสำหรับสร้าง VDO",
+        prompts: [
+          {
+            title: "Prompt สร้าง Script",
+            description:
+              "ใช้สำหรับให้ AI ช่วยคิดและเขียน Script สำหรับทำคลิป",
+            text:
+`ฉันต้องการทำคลิป [ประเภทคลิป]
+เกี่ยวกับ [หัวข้อ]
+
+กลุ่มเป้าหมาย:
+[ใครคือคนดู]
+
+ความยาว:
+[เช่น 20 วินาที / 30 วินาที / 60 วินาที]
+
+รูปแบบการนำเสนอ:
+[เล่าเรื่อง / ให้ความรู้ / ขายสินค้า / รีวิว / AI Presenter / Series / อื่น ๆ]
+
+ภาษา / สไตล์การพูด:
+[ภาษาไทย / ภาษาอีสาน / เป็นกันเอง / ตลก / จริงจัง / อื่น ๆ]
+
+เนื้อเรื่องหรือไอเดียคร่าว ๆ ของฉัน:
+[เขียนสิ่งที่คิดไว้แบบสั้น ๆ ได้เลย]
+
+ช่วยนำข้อมูลทั้งหมดนี้
+มาคิดและเขียนเป็น Script สำหรับสร้าง VDO ด้วย AI
+
+โดยให้คุณช่วย:
+- เรียบเรียงไอเดียของฉันให้เป็นเรื่องราวที่เข้าใจง่าย
+- เติมรายละเอียดที่จำเป็นเมื่อข้อมูลยังไม่ครบ
+- รักษาแก่นของไอเดียเดิมของฉัน
+- ทำให้เนื้อหาน่าสนใจตั้งแต่ช่วงต้น
+- ใช้ภาษาที่เหมาะกับกลุ่มเป้าหมาย
+- บทพูดต้องเป็นภาษาพูดที่เป็นธรรมชาติ
+- หากมีตัวละครหลายตัว ให้ระบุว่าใครเป็นคนพูด
+- ควบคุมบทพูดให้เหมาะกับความยาวของคลิป
+
+ยังไม่ต้องแบ่งเป็นฉาก
+เพราะฉันจะนำ Script ไปแบ่งฉากในขั้นตอนต่อไป`
+          },
+
+          {
+            title: "Prompt แบ่ง Script เป็นฉาก",
+            description:
+              "ใช้สำหรับแบ่ง Script ออกเป็นฉากสำหรับสร้าง VDO ด้วย AI โดยแต่ละฉากไม่เกิน 10 วินาที",
+            text:
+`จาก Script ที่เขียนไว้
+ช่วยแบ่ง Script ออกเป็นฉากสำหรับสร้าง VDO ด้วย AI
+
+เงื่อนไขสำคัญ:
+
+- แต่ละฉากมีความยาวไม่เกิน 10 วินาที
+- ต้องต่อเนื่องกัน
+- ห้ามตัดเนื้อหาสำคัญออก
+- บทพูดของแต่ละฉากต้องเหมาะกับระยะเวลา
+- ระบุว่าตัวละครใดพูด
+- ระบุภาพ/เหตุการณ์ที่เกิดขึ้น
+- ระบุการกระทำของตัวละคร
+- ระบุอารมณ์ของตัวละคร
+
+จัดเป็นรูปแบบ:
+
+ฉากที่ 1
+เวลา:
+ภาพ/เหตุการณ์:
+ตัวละคร:
+การกระทำ:
+บทพูด:
+อารมณ์:
+
+ฉากที่ 2
+เวลา:
+ภาพ/เหตุการณ์:
+ตัวละคร:
+การกระทำ:
+บทพูด:
+อารมณ์:`
+          }
+
+        ]
+      },
+
+
+      ep2: {
+        number: "EP.2",
+        title: "สร้าง Prompt และภาพตัวละคร",
+        description:
+          "สร้างตัวละครและภาพด้วย AI เพื่อนำไปใช้สร้าง Storyboard และ VDO",
+        prompts: [
+          {
+            title: "Prompt สร้าง Character Sheet",
+            description:
+              "ใช้สำหรับสร้างรายละเอียดตัวละครให้มีความชัดเจนและคงเอกลักษณ์",
+            text:
+`ช่วยสร้าง Prompt สำหรับสร้าง Character Sheet
+ของตัวละครจาก Script นี้
+
+โดยระบุรายละเอียด:
+- อายุ
+- เพศ
+- รูปร่าง
+- ใบหน้า
+- ทรงผม
+- เสื้อผ้า
+- สีเสื้อผ้า
+- บุคลิก
+- อารมณ์
+- ลักษณะเด่นของตัวละคร
+
+ต้องการภาพแบบ Character Sheet
+ที่เห็นตัวละครเต็มตัว
+พื้นหลังเรียบ
+และสามารถนำไปใช้เป็น Character Reference
+สำหรับสร้างภาพและ VDO ในฉากต่อ ๆ ไปได้`
+          },
+
+          {
+            title: "Prompt สร้างภาพตัวละคร",
+            description:
+              "ใช้สำหรับนำรายละเอียดตัวละครไปสร้างภาพด้วย AI",
+            text:
+`สร้างภาพตัวละครจาก Character Sheet ที่กำหนด
+
+ต้องรักษา:
+- ใบหน้า
+- ทรงผม
+- อายุ
+- รูปร่าง
+- เสื้อผ้า
+- สีเสื้อผ้า
+- บุคลิก
+
+ให้เหมือนกับ Character Reference
+อย่างสม่ำเสมอ
+
+สร้างภาพคุณภาพสูง
+รายละเอียดใบหน้าชัดเจน
+แสงสวย
+องค์ประกอบเหมาะสำหรับนำไปสร้าง VDO ด้วย AI`
+          }
+
+        ]
+      },
+
+
+      ep3: {
+        number: "EP.3",
+        title: "สร้าง Storyboard",
+        description:
+          "เปลี่ยน Script ให้เป็นภาพ Storyboard ของแต่ละฉาก",
+        prompts: []
+      },
+
+
+      ep4: {
+        number: "EP.4",
+        title: "สร้าง Video Prompt",
+        description:
+          "สร้าง Prompt สำหรับนำ Character และ Storyboard ไปสร้าง VDO",
+        prompts: []
+      },
+
+
+      ep5: {
+        number: "EP.5",
+        title: "สร้าง VDO ด้วย AI",
+        description:
+          "นำ Character Reference + Storyboard + Video Prompt ไปสร้าง VDO",
+        prompts: []
+      },
+
+
+      ep6: {
+        number: "EP.6",
+        title: "ตัดต่อและรวมคลิป",
+        description:
+          "นำคลิปที่สร้างได้มาตัดต่อ รวมคลิป และเตรียม VDO ให้พร้อมใช้งาน",
+        prompts: []
       }
-    ]
-  },
 
-  ep2: {
-    title: "สร้าง Prompt และภาพตัวละคร",
-    description: "สร้างตัวละครและภาพสำหรับนำไปทำ Storyboard",
-    prompts: [
-      {
-        title: "Prompt สร้างตัวละคร",
-        description: "ใช้สำหรับสร้าง Character Sheet",
-        text: "ช่วยสร้าง Prompt สำหรับสร้าง Character Sheet ของตัวละครจาก Script นี้ โดยรักษารายละเอียดใบหน้า เสื้อผ้า อายุ และบุคลิกให้ชัดเจน"
+    };
+
+
+    /* ==========================================
+       เปลี่ยนสถานะเมนู
+    ========================================== */
+
+    function setActiveNav(page) {
+
+      document
+        .querySelectorAll(".nav button")
+        .forEach(button => {
+          button.classList.remove("active");
+        });
+
+      const target = document.getElementById(
+        page === "all"
+          ? "nav-all"
+          : "nav-" + page
+      );
+
+      if (target) {
+        target.classList.add("active");
       }
-    ]
-  },
 
-  ep3: {
-    title: "สร้าง Storyboard",
-    description: "เปลี่ยน Script ให้เป็นภาพแต่ละฉาก",
-    prompts: []
-  },
+    }
 
-  ep4: {
-    title: "สร้าง Video Prompt",
-    description: "สร้าง Prompt สำหรับนำไปสร้าง VDO",
-    prompts: []
-  },
 
-  ep5: {
-    title: "สร้าง VDO ด้วย AI",
-    description: "นำ Character + Storyboard + Prompt ไปสร้าง VDO",
-    prompts: []
-  },
+    /* ==========================================
+       หน้า รวม Prompt
+    ========================================== */
 
-  ep6: {
-    title: "ตัดต่อและรวมคลิป",
-    description: "รวมคลิปและเตรียม VDO ให้พร้อมใช้งาน",
-    prompts: []
-  }
+    function showAllPage() {
 
-};
+      const content =
+        document.getElementById("content");
 
-function showPage(page) {
+      content.innerHTML = `
 
-  document.querySelectorAll(".nav button").forEach(btn => {
-    btn.classList.remove("active");
-  });
+        <div class="page-title">
 
-  event.target.classList.add("active");
+          <h2>รวม Prompt ทุก EP</h2>
 
-  const content = document.getElementById("content");
-
-  if (page === "all") {
-
-    content.innerHTML = `
-      <div class="page-title">
-        <h2>รวม Prompt ทุก EP</h2>
-        <p>เลือก EP ที่ต้องการเพื่อดู Prompt</p>
-      </div>
-
-      <div class="ep-grid">
-
-        ${Object.keys(episodes).map((key, index) => `
-          <div class="ep-card">
-
-            <span class="ep-number">EP.${index + 1}</span>
-
-            <h3>${episodes[key].title}</h3>
-
-            <p>${episodes[key].description}</p>
-
-            <p>
-              <strong>${episodes[key].prompts.length}</strong>
-              Prompt
-            </p>
-
-            <button onclick="openEpisode('${key}')">
-              ดู Prompt ใน EP นี้ →
-            </button>
-
-          </div>
-        `).join("")}
-
-      </div>
-    `;
-
-  } else {
-
-    renderEpisode(page);
-
-  }
-
-}
-
-function openEpisode(page) {
-
-  const buttons = document.querySelectorAll(".nav button");
-
-  buttons.forEach(btn => btn.classList.remove("active"));
-
-  const index = Object.keys(episodes).indexOf(page);
-
-  if (index >= 0) {
-    buttons[index + 1].classList.add("active");
-  }
-
-  renderEpisode(page);
-
-}
-
-function renderEpisode(page) {
-
-  const ep = episodes[page];
-
-  const content = document.getElementById("content");
-
-  content.innerHTML = `
-
-    <div class="page-title">
-
-      <h2>${ep.title}</h2>
-
-      <p>${ep.description}</p>
-
-    </div>
-
-    ${
-      ep.prompts.length === 0
-
-      ? `<div class="prompt-card">
-          <h3>กำลังเตรียม Prompt ✨</h3>
-          <p>Prompt ของ EP นี้จะเพิ่มเข้ามาเร็ว ๆ นี้</p>
-        </div>`
-
-      : ep.prompts.map(prompt => `
-
-        <div class="prompt-card">
-
-          <h3>${prompt.title}</h3>
-
-          <p>${prompt.description}</p>
-
-          <div class="prompt-box" id="prompt-${Math.random()}">
-            ${prompt.text}
-          </div>
-
-          <button class="copy-btn"
-            onclick="copyPrompt(this, \`${prompt.text.replace(/`/g, '\\`')}\`)">
-            📋 Copy Prompt
-          </button>
+          <p>
+            รวม Prompt ที่ใช้ในคอร์ส
+            เลือก EP ที่ต้องการเพื่อดู Prompt
+          </p>
 
         </div>
 
-      `).join("")
+
+        <div class="ep-grid">
+
+          ${Object.keys(episodes).map(key => {
+
+            const ep = episodes[key];
+
+            return `
+
+              <div class="ep-card">
+
+                <span class="ep-number">
+                  ${ep.number}
+                </span>
+
+                <h3>
+                  ${ep.title}
+                </h3>
+
+                <p>
+                  ${ep.description}
+                </p>
+
+                <p class="prompt-count">
+                  ${ep.prompts.length} Prompt
+                </p>
+
+                <button
+                  onclick="showPage('${key}')">
+                  ดู Prompt ใน EP นี้ →
+                </button>
+
+              </div>
+
+            `;
+
+          }).join("")}
+
+        </div>
+
+      `;
+
     }
 
-  `;
 
-}
+    /* ==========================================
+       หน้า EP
+    ========================================== */
 
-function copyPrompt(button, text) {
+    function showEpisodePage(page) {
 
-  navigator.clipboard.writeText(text);
+      const ep = episodes[page];
 
-  button.innerText = "✓ คัดลอกแล้ว";
+      const content =
+        document.getElementById("content");
 
-  setTimeout(() => {
-    button.innerText = "📋 Copy Prompt";
-  }, 2000);
+      if (!ep) return;
 
-}
 
-showPage("all");
+      let promptHTML = "";
 
-</script>
+
+      if (ep.prompts.length === 0) {
+
+        promptHTML = `
+
+          <div class="empty-card">
+
+            <div class="icon">✨</div>
+
+            <h3>
+              กำลังเตรียม Prompt
+            </h3>
+
+            <p>
+              Prompt ของ ${ep.number}
+              จะเพิ่มเข้ามาเร็ว ๆ นี้
+            </p>
+
+          </div>
+
+        `;
+
+      } else {
+
+        promptHTML = ep.prompts
+          .map((prompt, index) => {
+
+            return `
+
+              <div class="prompt-card">
+
+                <h3>
+                  ${index + 1}. ${prompt.title}
+                </h3>
+
+                <div class="prompt-description">
+                  ${prompt.description}
+                </div>
+
+                <div
+                  class="prompt-box"
+                  id="prompt-${page}-${index}">
+                  ${escapeHTML(prompt.text)}
+                </div>
+
+                <button
+                  class="copy-btn"
+                  onclick="copyPrompt('${page}', ${index}, this)">
+                  📋 Copy Prompt
+                </button>
+
+              </div>
+
+            `;
+
+          }).join("");
+
+      }
+
+
+      content.innerHTML = `
+
+        <div class="back-link"
+             onclick="showPage('all')">
+          ← กลับไป รวม Prompt
+        </div>
+
+        <div class="page-title">
+
+          <h2>
+            ${ep.number} | ${ep.title}
+          </h2>
+
+          <p>
+            ${ep.description}
+          </p>
+
+        </div>
+
+        ${promptHTML}
+
+      `;
+
+    }
+
+
+    /* ==========================================
+       ระบบเปลี่ยนหน้า
+    ========================================== */
+
+    function showPage(page) {
+
+      setActiveNav(page);
+
+      if (page === "all") {
+
+        showAllPage();
+
+      } else {
+
+        showEpisodePage(page);
+
+      }
+
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+      });
+
+    }
+
+
+    /* ==========================================
+       Copy Prompt
+    ========================================== */
+
+    function copyPrompt(page, index, button) {
+
+      const text =
+        episodes[page].prompts[index].text;
+
+      navigator.clipboard
+        .writeText(text)
+        .then(() => {
+
+          button.innerText =
+            "✓ คัดลอก Prompt แล้ว";
+
+          setTimeout(() => {
+
+            button.innerText =
+              "📋 Copy Prompt";
+
+          }, 2000);
+
+        });
+
+    }
+
+
+    /* ==========================================
+       ป้องกัน HTML ใน Prompt
+    ========================================== */
+
+    function escapeHTML(text) {
+
+      return text
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;");
+
+    }
+
+
+    /* ==========================================
+       เปิดหน้าแรก
+    ========================================== */
+
+    showPage("all");
+
+  </script>
 
 </body>
 </html>
