@@ -1,1 +1,389 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <title>คลัง Prompt | ใช้ AI ให้ทำคลิปเงินล้าน</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, "Noto Sans Thai", sans-serif;
+      background: #fff8fc;
+      color: #333;
+    }
+
+    header {
+      background: linear-gradient(135deg, #ff6fae, #b56cff);
+      color: white;
+      padding: 35px 20px;
+      text-align: center;
+    }
+
+    header h1 {
+      margin: 0 0 10px;
+      font-size: 30px;
+    }
+
+    header p {
+      margin: 0;
+      font-size: 16px;
+    }
+
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: white;
+      padding: 12px;
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+      border-bottom: 1px solid #eee;
+    }
+
+    .nav button {
+      border: none;
+      background: #f3f3f3;
+      padding: 10px 16px;
+      border-radius: 20px;
+      cursor: pointer;
+      white-space: nowrap;
+      font-size: 14px;
+    }
+
+    .nav button.active {
+      background: #ff5fa2;
+      color: white;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: auto;
+      padding: 30px 20px;
+    }
+
+    .page-title {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .page-title h2 {
+      margin-bottom: 8px;
+      color: #333;
+    }
+
+    .page-title p {
+      color: #777;
+    }
+
+    .ep-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+    .ep-card {
+      background: white;
+      border-radius: 18px;
+      padding: 24px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.06);
+      border: 1px solid #f0e6ee;
+    }
+
+    .ep-number {
+      display: inline-block;
+      background: #ffe2ef;
+      color: #e83f85;
+      padding: 6px 12px;
+      border-radius: 20px;
+      font-size: 13px;
+      font-weight: bold;
+      margin-bottom: 12px;
+    }
+
+    .ep-card h3 {
+      margin: 5px 0 10px;
+    }
+
+    .ep-card p {
+      color: #777;
+      line-height: 1.6;
+    }
+
+    .ep-card button {
+      width: 100%;
+      margin-top: 12px;
+      padding: 12px;
+      border: none;
+      border-radius: 10px;
+      background: #ff5fa2;
+      color: white;
+      font-size: 15px;
+      cursor: pointer;
+    }
+
+    .prompt-card {
+      background: white;
+      border-radius: 18px;
+      padding: 22px;
+      margin-bottom: 20px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.06);
+    }
+
+    .prompt-box {
+      background: #f7f7f9;
+      padding: 18px;
+      border-radius: 12px;
+      white-space: pre-wrap;
+      line-height: 1.7;
+      margin: 15px 0;
+      font-size: 14px;
+    }
+
+    .copy-btn {
+      background: #ff5fa2;
+      color: white;
+      border: none;
+      padding: 11px 20px;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px;
+      color: #888;
+      font-size: 13px;
+    }
+
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 23px;
+      }
+
+      .container {
+        padding: 25px 15px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <h1>คลัง Prompt | ใช้ AI ให้ทำคลิปเงินล้าน</h1>
+  <p>รวม Prompt สำหรับเรียนและสร้างคลิปด้วย AI</p>
+</header>
+
+<nav class="nav">
+  <button class="active" onclick="showPage('all')">รวม Prompt</button>
+  <button onclick="showPage('ep1')">EP.1</button>
+  <button onclick="showPage('ep2')">EP.2</button>
+  <button onclick="showPage('ep3')">EP.3</button>
+  <button onclick="showPage('ep4')">EP.4</button>
+  <button onclick="showPage('ep5')">EP.5</button>
+  <button onclick="showPage('ep6')">EP.6</button>
+</nav>
+
+<main class="container" id="content"></main>
+
+<footer>
+  © 2026 ครูแซนดร้า | AI Course
+</footer>
+
+<script>
+
+const episodes = {
+
+  ep1: {
+    title: "คิดไอเดียและเขียน Script",
+    description: "ใช้ AI ช่วยคิดไอเดียและเขียน Script สำหรับทำคลิป",
+    prompts: [
+      {
+        title: "Prompt สร้าง Script",
+        description: "ใช้สำหรับให้ AI ช่วยคิดและเขียน Script",
+        text: "ฉันต้องการทำคลิปเกี่ยวกับ [หัวข้อ]\\nกลุ่มเป้าหมายคือ [กลุ่มเป้าหมาย]\\nความยาว [จำนวนวินาที]\\nช่วยเขียน Script สำหรับสร้าง VDO ด้วย AI ให้ฉัน"
+      }
+    ]
+  },
+
+  ep2: {
+    title: "สร้าง Prompt และภาพตัวละคร",
+    description: "สร้างตัวละครและภาพสำหรับนำไปทำ Storyboard",
+    prompts: [
+      {
+        title: "Prompt สร้างตัวละคร",
+        description: "ใช้สำหรับสร้าง Character Sheet",
+        text: "ช่วยสร้าง Prompt สำหรับสร้าง Character Sheet ของตัวละครจาก Script นี้ โดยรักษารายละเอียดใบหน้า เสื้อผ้า อายุ และบุคลิกให้ชัดเจน"
+      }
+    ]
+  },
+
+  ep3: {
+    title: "สร้าง Storyboard",
+    description: "เปลี่ยน Script ให้เป็นภาพแต่ละฉาก",
+    prompts: []
+  },
+
+  ep4: {
+    title: "สร้าง Video Prompt",
+    description: "สร้าง Prompt สำหรับนำไปสร้าง VDO",
+    prompts: []
+  },
+
+  ep5: {
+    title: "สร้าง VDO ด้วย AI",
+    description: "นำ Character + Storyboard + Prompt ไปสร้าง VDO",
+    prompts: []
+  },
+
+  ep6: {
+    title: "ตัดต่อและรวมคลิป",
+    description: "รวมคลิปและเตรียม VDO ให้พร้อมใช้งาน",
+    prompts: []
+  }
+
+};
+
+function showPage(page) {
+
+  document.querySelectorAll(".nav button").forEach(btn => {
+    btn.classList.remove("active");
+  });
+
+  event.target.classList.add("active");
+
+  const content = document.getElementById("content");
+
+  if (page === "all") {
+
+    content.innerHTML = `
+      <div class="page-title">
+        <h2>รวม Prompt ทุก EP</h2>
+        <p>เลือก EP ที่ต้องการเพื่อดู Prompt</p>
+      </div>
+
+      <div class="ep-grid">
+
+        ${Object.keys(episodes).map((key, index) => `
+          <div class="ep-card">
+
+            <span class="ep-number">EP.${index + 1}</span>
+
+            <h3>${episodes[key].title}</h3>
+
+            <p>${episodes[key].description}</p>
+
+            <p>
+              <strong>${episodes[key].prompts.length}</strong>
+              Prompt
+            </p>
+
+            <button onclick="openEpisode('${key}')">
+              ดู Prompt ใน EP นี้ →
+            </button>
+
+          </div>
+        `).join("")}
+
+      </div>
+    `;
+
+  } else {
+
+    renderEpisode(page);
+
+  }
+
+}
+
+function openEpisode(page) {
+
+  const buttons = document.querySelectorAll(".nav button");
+
+  buttons.forEach(btn => btn.classList.remove("active"));
+
+  const index = Object.keys(episodes).indexOf(page);
+
+  if (index >= 0) {
+    buttons[index + 1].classList.add("active");
+  }
+
+  renderEpisode(page);
+
+}
+
+function renderEpisode(page) {
+
+  const ep = episodes[page];
+
+  const content = document.getElementById("content");
+
+  content.innerHTML = `
+
+    <div class="page-title">
+
+      <h2>${ep.title}</h2>
+
+      <p>${ep.description}</p>
+
+    </div>
+
+    ${
+      ep.prompts.length === 0
+
+      ? `<div class="prompt-card">
+          <h3>กำลังเตรียม Prompt ✨</h3>
+          <p>Prompt ของ EP นี้จะเพิ่มเข้ามาเร็ว ๆ นี้</p>
+        </div>`
+
+      : ep.prompts.map(prompt => `
+
+        <div class="prompt-card">
+
+          <h3>${prompt.title}</h3>
+
+          <p>${prompt.description}</p>
+
+          <div class="prompt-box" id="prompt-${Math.random()}">
+            ${prompt.text}
+          </div>
+
+          <button class="copy-btn"
+            onclick="copyPrompt(this, \`${prompt.text.replace(/`/g, '\\`')}\`)">
+            📋 Copy Prompt
+          </button>
+
+        </div>
+
+      `).join("")
+    }
+
+  `;
+
+}
+
+function copyPrompt(button, text) {
+
+  navigator.clipboard.writeText(text);
+
+  button.innerText = "✓ คัดลอกแล้ว";
+
+  setTimeout(() => {
+    button.innerText = "📋 Copy Prompt";
+  }, 2000);
+
+}
+
+showPage("all");
+
+</script>
+
+</body>
+</html>
