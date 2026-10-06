@@ -16,15 +16,17 @@
 
   <style>
 
+    /* ==================================================
+       RESET
+    ================================================== */
+
     * {
       box-sizing: border-box;
     }
 
-
     html {
       scroll-behavior: smooth;
     }
-
 
     body {
       margin: 0;
@@ -35,9 +37,17 @@
         Arial,
         sans-serif;
 
-      background: #fff8fc;
+      background:
+        linear-gradient(
+          180deg,
+          #fff5fa 0%,
+          #fffafd 45%,
+          #ffffff 100%
+        );
 
-      color: #333;
+      color: #182052;
+
+      line-height: 1.6;
     }
 
 
@@ -45,23 +55,25 @@
        BANNER
     ================================================== */
 
-    .hero-banner {
+    .hero {
       width: 100%;
 
-      background: #ffffff;
+      background: #fff;
 
       overflow: hidden;
+
+      border-bottom:
+        1px solid #f3dce9;
     }
 
-
-    .hero-banner img {
+    .hero img {
       display: block;
 
       width: 100%;
 
       height: auto;
 
-      max-height: 520px;
+      max-height: 560px;
 
       object-fit: cover;
 
@@ -79,128 +91,356 @@
 
       top: 0;
 
-      z-index: 100;
+      z-index: 999;
 
       background:
-        rgba(255,255,255,0.97);
+        rgba(255,255,255,0.96);
 
       backdrop-filter:
-        blur(10px);
+        blur(12px);
 
       border-bottom:
-        1px solid #eee;
+        1px solid #f0dce8;
 
       box-shadow:
-        0 3px 15px rgba(0,0,0,0.05);
+        0 4px 18px
+        rgba(150,70,120,0.08);
 
       overflow-x: auto;
     }
 
-
     .nav {
 
-      max-width: 1100px;
+      max-width: 1180px;
 
       margin: auto;
 
-      display: flex;
+      padding:
+        12px 16px;
 
-      align-items: center;
+      display: flex;
 
       gap: 8px;
 
-      padding: 12px 16px;
-
       white-space: nowrap;
     }
-
 
     .nav a {
 
       text-decoration: none;
 
-      color: #555;
+      display: flex;
 
-      background: #f3f3f5;
+      flex-direction: column;
+
+      align-items: center;
+
+      justify-content: center;
+
+      min-width: 92px;
 
       padding:
-        10px 18px;
+        8px 15px;
 
-      border-radius: 30px;
+      border-radius: 18px;
+
+      background:
+        #f3f4fa;
+
+      color:
+        #182052;
+
+      font-weight: 700;
 
       font-size: 14px;
 
+      line-height: 1.3;
+
       transition:
-        all 0.2s ease;
+        all 0.25s ease;
     }
 
+    .nav a small {
+
+      font-size: 11px;
+
+      font-weight: 500;
+
+      margin-top: 2px;
+
+      opacity: .75;
+    }
 
     .nav a:hover {
 
-      background: #ffe2ef;
+      transform:
+        translateY(-2px);
 
-      color: #d83f80;
+      background:
+        #ffe4f1;
+
+      color:
+        #d91572;
     }
 
+    .nav a.active {
 
-    .nav a.main-menu {
+      color: #fff;
 
       background:
         linear-gradient(
           135deg,
-          #f45ca5,
-          #b05de8
+          #f51673,
+          #d83fd0
         );
 
-      color: white;
-
       box-shadow:
-        0 4px 12px
-        rgba(220,80,160,0.25);
+        0 6px 16px
+        rgba(235,40,130,.25);
+    }
+
+    .nav a.active small {
+      opacity: .95;
     }
 
 
     /* ==================================================
-       MAIN CONTENT
+       MAIN
     ================================================== */
 
     .container {
 
-      max-width: 900px;
+      max-width: 980px;
 
       margin: auto;
 
       padding:
-        45px 20px 70px;
+        35px 20px 70px;
     }
 
 
-    .page-title {
+    /* ==================================================
+       PAGE INTRO
+    ================================================== */
+
+    .intro {
 
       text-align: center;
 
-      margin-bottom: 38px;
+      margin:
+        10px 0 35px;
     }
 
-
-    .page-title h2 {
+    .intro h1 {
 
       margin:
-        0 0 10px;
+        0 0 8px;
 
-      font-size: 30px;
+      font-size:
+        clamp(26px, 4vw, 34px);
 
-      color: #333;
+      color:
+        #182052;
+
+      font-weight:
+        800;
     }
 
-
-    .page-title p {
+    .intro p {
 
       margin: 0;
 
-      color: #777;
+      color:
+        #73758a;
 
-      line-height: 1.7;
+      font-size:
+        15px;
+    }
+
+    .intro-badge {
+
+      display:
+        inline-flex;
+
+      align-items:
+        center;
+
+      gap: 6px;
+
+      margin-bottom:
+        12px;
+
+      padding:
+        6px 14px;
+
+      border-radius:
+        30px;
+
+      background:
+        #ffe5f0;
+
+      color:
+        #dc126e;
+
+      font-size:
+        13px;
+
+      font-weight:
+        700;
+    }
+
+
+    /* ==================================================
+       EP SECTION
+    ================================================== */
+
+    .ep-section {
+
+      margin-bottom:
+        55px;
+
+      scroll-margin-top:
+        100px;
+    }
+
+
+    .ep-header {
+
+      position:
+        relative;
+
+      overflow:
+        hidden;
+
+      display:
+        flex;
+
+      align-items:
+        center;
+
+      gap:
+        18px;
+
+      min-height:
+        120px;
+
+      padding:
+        22px 28px;
+
+      margin-bottom:
+        22px;
+
+      border-radius:
+        26px;
+
+      background:
+        linear-gradient(
+          110deg,
+          #f99bd0 0%,
+          #f8c9e3 38%,
+          #ffffff 100%
+        );
+
+      border:
+        1px solid #f4c6dc;
+
+      box-shadow:
+        0 10px 30px
+        rgba(213,90,145,.10);
+    }
+
+
+    .ep-header::after {
+
+      content:
+        "✦";
+
+      position:
+        absolute;
+
+      right:
+        28px;
+
+      top:
+        18px;
+
+      font-size:
+        52px;
+
+      color:
+        rgba(255,255,255,.75);
+    }
+
+
+    .ep-number-large {
+
+      flex-shrink: 0;
+
+      width:
+        76px;
+
+      height:
+        76px;
+
+      border-radius:
+        22px;
+
+      display:
+        flex;
+
+      align-items:
+        center;
+
+      justify-content:
+        center;
+
+      color:
+        white;
+
+      background:
+        linear-gradient(
+          135deg,
+          #f51773,
+          #b928ce
+        );
+
+      font-size:
+        22px;
+
+      font-weight:
+        800;
+
+      box-shadow:
+        0 8px 18px
+        rgba(222,35,120,.25);
+    }
+
+
+    .ep-header h2 {
+
+      margin:
+        0 0 3px;
+
+      color:
+        #d91470;
+
+      font-size:
+        clamp(21px, 3vw, 29px);
+
+      font-weight:
+        800;
+    }
+
+    .ep-header p {
+
+      margin:
+        0;
+
+      color:
+        #333c69;
+
+      font-size:
+        15px;
     }
 
 
@@ -210,98 +450,254 @@
 
     .prompt-card {
 
-      background: white;
+      position:
+        relative;
+
+      background:
+        rgba(255,255,255,.97);
 
       border:
-        1px solid #f0e3ec;
+        1px solid #f1dce8;
 
-      border-radius: 22px;
+      border-radius:
+        26px;
 
-      padding: 28px;
+      padding:
+        26px;
 
-      margin-bottom: 28px;
+      margin-bottom:
+        20px;
 
       box-shadow:
-        0 8px 28px
-        rgba(80,40,80,0.06);
+        0 9px 28px
+        rgba(68,44,83,.07);
 
-      scroll-margin-top: 90px;
+      transition:
+        transform .2s ease,
+        box-shadow .2s ease;
+    }
+
+    .prompt-card:hover {
+
+      transform:
+        translateY(-2px);
+
+      box-shadow:
+        0 14px 35px
+        rgba(68,44,83,.10);
     }
 
 
+    /* ==================================================
+       PROMPT TOP
+    ================================================== */
+
     .prompt-top {
 
-      display: flex;
+      display:
+        flex;
 
-      align-items: center;
+      align-items:
+        center;
 
-      gap: 10px;
+      gap:
+        9px;
 
-      margin-bottom: 12px;
+      flex-wrap:
+        wrap;
 
-      flex-wrap: wrap;
+      margin-bottom:
+        12px;
     }
 
 
     .prompt-number {
 
-      display: inline-block;
+      display:
+        inline-flex;
+
+      align-items:
+        center;
+
+      justify-content:
+        center;
+
+      min-width:
+        50px;
+
+      height:
+        50px;
+
+      border-radius:
+        50%;
+
+      color:
+        white;
 
       background:
         linear-gradient(
           135deg,
-          #f45ca5,
-          #b05de8
+          #f51970,
+          #dc37b7
         );
 
-      color: white;
+      font-size:
+        21px;
 
-      padding:
-        7px 14px;
+      font-weight:
+        800;
 
-      border-radius: 20px;
-
-      font-size: 13px;
-
-      font-weight: 700;
+      box-shadow:
+        0 6px 15px
+        rgba(235,28,119,.22);
     }
 
 
-    .ep-tag {
-
-      display: inline-block;
-
-      background: #ffe4f0;
-
-      color: #dc4183;
+    .prompt-badge {
 
       padding:
-        7px 13px;
+        6px 13px;
 
-      border-radius: 20px;
+      border-radius:
+        20px;
 
-      font-size: 13px;
+      background:
+        #fff0b8;
 
-      font-weight: 600;
+      color:
+        #9b6500;
+
+      font-size:
+        12px;
+
+      font-weight:
+        800;
     }
 
 
     .prompt-card h3 {
 
       margin:
-        8px 0 10px;
+        4px 0 7px;
 
-      font-size: 22px;
+      color:
+        #172052;
+
+      font-size:
+        22px;
+
+      line-height:
+        1.35;
     }
 
 
     .prompt-description {
 
-      color: #777;
+      margin-bottom:
+        16px;
 
-      line-height: 1.75;
+      color:
+        #62657b;
 
-      margin-bottom: 18px;
+      font-size:
+        14px;
+
+      line-height:
+        1.75;
+    }
+
+
+    /* ==================================================
+       EXAMPLE TOGGLE
+    ================================================== */
+
+    .example-toggle {
+
+      display:
+        flex;
+
+      align-items:
+        center;
+
+      justify-content:
+        space-between;
+
+      width:
+        100%;
+
+      border:
+        none;
+
+      background:
+        #f4f3fa;
+
+      color:
+        #273061;
+
+      padding:
+        9px 13px;
+
+      border-radius:
+        12px;
+
+      cursor:
+        pointer;
+
+      font-family:
+        inherit;
+
+      font-size:
+        13px;
+
+      font-weight:
+        700;
+
+      margin-bottom:
+        8px;
+
+      transition:
+        .2s ease;
+    }
+
+    .example-toggle:hover {
+
+      background:
+        #eeeaf8;
+    }
+
+
+    .example-content {
+
+      display:
+        none;
+
+      padding:
+        12px 15px;
+
+      margin-bottom:
+        15px;
+
+      border-radius:
+        12px;
+
+      background:
+        #fffaf0;
+
+      border:
+        1px solid #f5e6bd;
+
+      color:
+        #555;
+
+      font-size:
+        13px;
+
+      line-height:
+        1.7;
+    }
+
+    .example-content.show {
+      display: block;
     }
 
 
@@ -311,13 +707,35 @@
 
     .prompt-label {
 
-      font-size: 13px;
+      display:
+        flex;
 
-      color: #999;
+      align-items:
+        center;
 
-      margin-bottom: 8px;
+      gap:
+        7px;
 
-      font-weight: 600;
+      margin-bottom:
+        8px;
+
+      color:
+        #d91b72;
+
+      font-size:
+        13px;
+
+      font-weight:
+        800;
+    }
+
+    .prompt-label::before {
+
+      content:
+        "✦";
+
+      font-size:
+        13px;
     }
 
 
@@ -327,28 +745,44 @@
 
     .prompt-box {
 
-      background: #f8f7fa;
+      height:
+        245px;
+
+      overflow-y:
+        auto;
+
+      overflow-x:
+        hidden;
+
+      padding:
+        19px;
+
+      background:
+        #f4f5fb;
 
       border:
-        1px solid #ece9ef;
+        1px solid #e4e5ef;
 
-      border-radius: 15px;
+      border-radius:
+        17px;
 
-      padding: 20px;
+      color:
+        #252a4f;
 
-      white-space: pre-wrap;
+      font-family:
+        "Noto Sans Thai",
+        "Segoe UI",
+        Arial,
+        sans-serif;
 
-      line-height: 1.8;
+      font-size:
+        14px;
 
-      font-size: 14px;
+      line-height:
+        1.8;
 
-      color: #444;
-
-      height: 260px;
-
-      overflow-y: auto;
-
-      overflow-x: hidden;
+      white-space:
+        pre-wrap;
 
       -webkit-overflow-scrolling:
         touch;
@@ -361,29 +795,30 @@
 
     .prompt-box::-webkit-scrollbar {
 
-      width: 7px;
+      width:
+        7px;
     }
-
 
     .prompt-box::-webkit-scrollbar-track {
 
-      background: #eeeeF3;
+      background:
+        #e9e9f0;
 
-      border-radius: 10px;
+      border-radius:
+        10px;
     }
-
 
     .prompt-box::-webkit-scrollbar-thumb {
 
-      background: #e5a1c2;
+      background:
+        linear-gradient(
+          180deg,
+          #f45ca5,
+          #b65bdd
+        );
 
-      border-radius: 10px;
-    }
-
-
-    .prompt-box::-webkit-scrollbar-thumb:hover {
-
-      background: #d978a7;
+      border-radius:
+        10px;
     }
 
 
@@ -391,71 +826,90 @@
        COPY BUTTON
     ================================================== */
 
+    .button-row {
+
+      display:
+        flex;
+
+      justify-content:
+        flex-end;
+
+      margin-top:
+        12px;
+    }
+
+
     .copy-btn {
 
-      margin-top: 15px;
+      display:
+        inline-flex;
 
-      border: none;
+      align-items:
+        center;
+
+      justify-content:
+        center;
+
+      gap:
+        8px;
+
+      border:
+        none;
+
+      padding:
+        12px 23px;
+
+      border-radius:
+        14px;
+
+      color:
+        white;
 
       background:
         linear-gradient(
           135deg,
-          #f45ca5,
-          #b05de8
+          #f51673,
+          #e128a5
         );
 
-      color: white;
+      font-family:
+        inherit;
 
-      padding:
-        12px 22px;
+      font-size:
+        14px;
 
-      border-radius: 11px;
+      font-weight:
+        800;
 
-      cursor: pointer;
+      cursor:
+        pointer;
 
-      font-size: 14px;
-
-      font-weight: 600;
+      box-shadow:
+        0 6px 15px
+        rgba(229,27,119,.22);
 
       transition:
-        all 0.2s ease;
+        all .2s ease;
     }
-
 
     .copy-btn:hover {
 
       transform:
-        translateY(-1px);
+        translateY(-2px);
 
-      opacity: 0.92;
+      box-shadow:
+        0 9px 20px
+        rgba(229,27,119,.28);
     }
 
+    .copy-btn.copied {
 
-    .copy-btn:active {
-
-      transform:
-        scale(0.98);
-    }
-
-
-    /* ==================================================
-       SECTION TITLE
-    ================================================== */
-
-    .section-title {
-
-      text-align: center;
-
-      margin:
-        55px 0 25px;
-
-      color: #d83f80;
-
-      font-size: 18px;
-
-      font-weight: 700;
-
-      scroll-margin-top: 90px;
+      background:
+        linear-gradient(
+          135deg,
+          #19b86b,
+          #0e9f5c
+        );
     }
 
 
@@ -465,42 +919,50 @@
 
     .coming-soon {
 
-      background: white;
+      background:
+        white;
 
       border:
-        1px dashed #e5bfd3;
+        2px dashed #efc5db;
 
-      border-radius: 20px;
+      border-radius:
+        24px;
 
       padding:
-        35px 25px;
+        38px 25px;
 
-      text-align: center;
+      text-align:
+        center;
 
-      margin-bottom: 28px;
+      color:
+        #73758a;
     }
 
+    .coming-soon-icon {
 
-    .coming-soon .icon {
+      font-size:
+        42px;
 
-      font-size: 40px;
-
-      margin-bottom: 10px;
+      margin-bottom:
+        8px;
     }
-
 
     .coming-soon h3 {
 
       margin:
-        0 0 8px;
-    }
+        0 0 6px;
 
+      color:
+        #252a58;
+    }
 
     .coming-soon p {
 
-      color: #888;
+      margin:
+        0;
 
-      margin: 0;
+      font-size:
+        14px;
     }
 
 
@@ -510,19 +972,23 @@
 
     footer {
 
-      text-align: center;
-
       padding:
-        30px 20px;
+        28px 20px;
 
-      color: #999;
+      text-align:
+        center;
 
-      font-size: 13px;
+      background:
+        #fff;
 
       border-top:
-        1px solid #eee;
+        1px solid #f0e1e9;
 
-      background: white;
+      color:
+        #999;
+
+      font-size:
+        13px;
     }
 
 
@@ -530,77 +996,202 @@
        MOBILE
     ================================================== */
 
-    @media (max-width: 600px) {
+    @media (max-width: 650px) {
 
+      .hero img {
 
-      .hero-banner img {
+        max-height:
+          none;
 
-        width: 100%;
-
-        height: auto;
-
-        max-height: none;
-
-        object-fit: contain;
+        object-fit:
+          contain;
       }
 
 
       .nav {
 
         padding:
-          10px 12px;
+          9px 12px;
+
+        gap:
+          6px;
       }
 
 
       .nav a {
 
-        padding:
-          9px 15px;
+        min-width:
+          76px;
 
-        font-size: 13px;
+        padding:
+          8px 11px;
+
+        border-radius:
+          15px;
+
+        font-size:
+          12px;
+      }
+
+
+      .nav a small {
+
+        font-size:
+          9px;
       }
 
 
       .container {
 
         padding:
-          32px 15px 50px;
+          25px 13px 55px;
       }
 
 
-      .page-title h2 {
+      .intro {
 
-        font-size: 25px;
+        margin-bottom:
+          25px;
+      }
+
+
+      .intro h1 {
+
+        font-size:
+          25px;
+      }
+
+
+      .intro p {
+
+        font-size:
+          13px;
+      }
+
+
+      .ep-header {
+
+        min-height:
+          105px;
+
+        padding:
+          18px;
+
+        gap:
+          13px;
+
+        border-radius:
+          20px;
+      }
+
+
+      .ep-number-large {
+
+        width:
+          60px;
+
+        height:
+          60px;
+
+        border-radius:
+          17px;
+
+        font-size:
+          18px;
+      }
+
+
+      .ep-header h2 {
+
+        font-size:
+          20px;
+      }
+
+
+      .ep-header p {
+
+        font-size:
+          12px;
+      }
+
+
+      .ep-header::after {
+
+        font-size:
+          35px;
+
+        right:
+          12px;
+
+        top:
+          8px;
       }
 
 
       .prompt-card {
 
-        padding: 20px;
+        padding:
+          19px;
 
-        border-radius: 18px;
+        border-radius:
+          21px;
+      }
+
+
+      .prompt-number {
+
+        width:
+          44px;
+
+        height:
+          44px;
+
+        min-width:
+          44px;
+
+        font-size:
+          18px;
       }
 
 
       .prompt-card h3 {
 
-        font-size: 19px;
+        font-size:
+          19px;
+      }
+
+
+      .prompt-description {
+
+        font-size:
+          13px;
       }
 
 
       .prompt-box {
 
-        font-size: 13px;
+        height:
+          225px;
 
-        padding: 16px;
+        padding:
+          15px;
 
-        height: 230px;
+        font-size:
+          13px;
+      }
+
+
+      .button-row {
+
+        display:
+          block;
       }
 
 
       .copy-btn {
 
-        width: 100%;
+        width:
+          100%;
       }
 
     }
@@ -614,10 +1205,10 @@
 
 
   <!-- ==================================================
-       HERO BANNER
+       BANNER
   ================================================== -->
 
-  <section class="hero-banner">
+  <section class="hero">
 
     <img
       src="banner.png"
@@ -627,52 +1218,79 @@
 
 
   <!-- ==================================================
-       NAVIGATION
+       NAV
   ================================================== -->
 
   <div class="nav-wrapper">
 
     <nav class="nav">
 
-
       <a
-        href="#top"
-        class="main-menu">
+        href="#ep1"
+        class="active">
 
-        คลัง Prompt
-
-      </a>
-
-
-      <a href="#ep1">
         EP.1
+
+        <small>
+          เขียน Script
+        </small>
+
       </a>
 
 
       <a href="#ep2">
+
         EP.2
+
+        <small>
+          สร้างตัวละคร
+        </small>
+
       </a>
 
 
       <a href="#ep3">
+
         EP.3
+
+        <small>
+          Storyboard
+        </small>
+
       </a>
 
 
       <a href="#ep4">
+
         EP.4
+
+        <small>
+          Video Prompt
+        </small>
+
       </a>
 
 
       <a href="#ep5">
+
         EP.5
+
+        <small>
+          สร้าง VDO
+        </small>
+
       </a>
 
 
       <a href="#ep6">
-        EP.6
-      </a>
 
+        EP.6
+
+        <small>
+          ตัดต่อ
+        </small>
+
+      </a>
 
     </nav>
 
@@ -683,71 +1301,135 @@
        MAIN
   ================================================== -->
 
-  <main
-    class="container"
-    id="top">
+  <main class="container">
 
 
-    <!-- PAGE TITLE -->
+    <!-- INTRO -->
 
-    <div class="page-title">
+    <section class="intro">
 
-      <h2>
+      <div class="intro-badge">
+
+        ✦ Prompt พร้อมใช้
+
+      </div>
+
+
+      <h1>
+
         คลัง Prompt
-      </h2>
+
+      </h1>
+
 
       <p>
+
         เรียงตามขั้นตอนการทำคลิป
         <br>
         Copy Prompt แล้วนำไปใช้ได้ทันที
+
       </p>
 
-    </div>
+    </section>
 
 
     <!-- ==================================================
-         PROMPT 01
+         EP.1
     ================================================== -->
 
-    <div
-      class="prompt-card"
-      id="prompt-01">
+    <section
+      class="ep-section"
+      id="ep1">
 
-      <div class="prompt-top">
 
-        <span class="prompt-number">
-          PROMPT 01
-        </span>
+      <div class="ep-header">
 
-        <span class="ep-tag">
+        <div class="ep-number-large">
+
           EP.1
-        </span>
+
+        </div>
+
+
+        <div>
+
+          <h2>
+            คิดและเขียน Script
+          </h2>
+
+          <p>
+            ใช้ AI ช่วยคิดไอเดีย และเขียน Script สำหรับทำคลิป
+          </p>
+
+        </div>
 
       </div>
 
 
-      <h3>
-        เขียน Script
-      </h3>
+      <!-- PROMPT 01 -->
+
+      <article class="prompt-card">
 
 
-      <div class="prompt-description">
+        <div class="prompt-top">
 
-        ใช้สำหรับให้ AI ช่วยคิดและเขียน Script
-        จากไอเดียของเรา
-        โดยไม่จำเป็นต้องเขียน Prompt ให้ซับซ้อน
+          <div class="prompt-number">
+            1
+          </div>
 
-      </div>
+          <div class="prompt-badge">
+            แนะนำสำหรับมือใหม่
+          </div>
+
+        </div>
 
 
-      <div class="prompt-label">
-        PROMPT
-      </div>
+        <h3>
+          Prompt ที่ 1 : คิดไอเดียและเขียน Script
+        </h3>
 
 
-      <div
-        class="prompt-box"
-        id="text-01">ฉันต้องการทำคลิป [ประเภทคลิป]
+        <div class="prompt-description">
+
+          ใช้สำหรับให้ AI ช่วยคิดไอเดีย
+          และเขียน Script จากหัวข้อ
+          กลุ่มเป้าหมาย และรูปแบบคลิปที่ต้องการ
+
+        </div>
+
+
+        <button
+          class="example-toggle"
+          onclick="toggleExample(this)">
+
+          <span>
+            ✦ ตัวอย่างผลลัพธ์ที่ได้
+          </span>
+
+          <span>
+            ▼
+          </span>
+
+        </button>
+
+
+        <div class="example-content">
+
+          AI จะช่วยเปลี่ยนไอเดียคร่าว ๆ
+          ให้กลายเป็น Script ที่พร้อมนำไปสร้าง VDO
+          โดยยังคงแก่นของไอเดียเดิมไว้
+
+        </div>
+
+
+        <div class="prompt-label">
+          PROMPT
+        </div>
+
+
+        <div
+          class="prompt-box"
+          id="prompt-01">ฉันต้องการทำคลิป [ประเภทคลิป]
 เกี่ยวกับ [หัวข้อ]
 
 กลุ่มเป้าหมาย:
@@ -784,59 +1466,87 @@
 เพราะฉันจะนำ Script ไปแบ่งฉากในขั้นตอนต่อไป</div>
 
 
-      <button
-        class="copy-btn"
-        onclick="copyText('text-01', this)">
+        <div class="button-row">
 
-        📋 Copy Prompt
+          <button
+            class="copy-btn"
+            onclick="copyPrompt('prompt-01', this)">
 
-      </button>
+            📋 Copy Prompt
 
-    </div>
+          </button>
 
+        </div>
 
-    <!-- ==================================================
-         PROMPT 02
-    ================================================== -->
-
-    <div
-      class="prompt-card"
-      id="prompt-02">
-
-      <div class="prompt-top">
-
-        <span class="prompt-number">
-          PROMPT 02
-        </span>
-
-        <span class="ep-tag">
-          EP.1
-        </span>
-
-      </div>
+      </article>
 
 
-      <h3>
-        แยก Script เป็นฉาก
-      </h3>
+      <!-- PROMPT 02 -->
+
+      <article class="prompt-card">
 
 
-      <div class="prompt-description">
+        <div class="prompt-top">
 
-        นำ Script ที่ได้มาแบ่งเป็นฉากสำหรับสร้าง VDO
-        โดยแต่ละฉากมีความยาวไม่เกิน 10 วินาที
+          <div class="prompt-number">
+            2
+          </div>
 
-      </div>
+          <div class="prompt-badge">
+            ขั้นตอนถัดไป
+          </div>
+
+        </div>
 
 
-      <div class="prompt-label">
-        PROMPT
-      </div>
+        <h3>
+          Prompt ที่ 2 : แยก Script เป็นฉาก
+        </h3>
 
 
-      <div
-        class="prompt-box"
-        id="text-02">จาก Script ที่เขียนไว้
+        <div class="prompt-description">
+
+          นำ Script ที่ได้มาแบ่งเป็นฉาก
+          สำหรับสร้าง VDO โดยแต่ละฉาก
+          มีความยาวไม่เกิน 10 วินาที
+
+        </div>
+
+
+        <button
+          class="example-toggle"
+          onclick="toggleExample(this)">
+
+          <span>
+            ✦ ตัวอย่างผลลัพธ์ที่ได้
+          </span>
+
+          <span>
+            ▼
+          </span>
+
+        </button>
+
+
+        <div class="example-content">
+
+          ฉากที่ 1 → เวลา / ภาพ / ตัวละคร / การกระทำ / บทพูด / อารมณ์
+
+          <br><br>
+
+          ฉากที่ 2 → เวลา / ภาพ / ตัวละคร / การกระทำ / บทพูด / อารมณ์
+
+        </div>
+
+
+        <div class="prompt-label">
+          PROMPT
+        </div>
+
+
+        <div
+          class="prompt-box"
+          id="prompt-02">จาก Script ที่เขียนไว้
 ช่วยแบ่ง Script ออกเป็นฉากสำหรับสร้าง VDO ด้วย AI
 
 เงื่อนไขสำคัญ:
@@ -869,60 +1579,119 @@
 อารมณ์:</div>
 
 
-      <button
-        class="copy-btn"
-        onclick="copyText('text-02', this)">
+        <div class="button-row">
 
-        📋 Copy Prompt
+          <button
+            class="copy-btn"
+            onclick="copyPrompt('prompt-02', this)">
 
-      </button>
+            📋 Copy Prompt
 
-    </div>
+          </button>
+
+        </div>
+
+      </article>
+
+
+    </section>
 
 
     <!-- ==================================================
-         PROMPT 03
+         EP.2
     ================================================== -->
 
-    <div
-      class="prompt-card"
-      id="prompt-03">
+    <section
+      class="ep-section"
+      id="ep2">
 
-      <div class="prompt-top">
 
-        <span class="prompt-number">
-          PROMPT 03
-        </span>
+      <div class="ep-header">
 
-        <span class="ep-tag">
+        <div class="ep-number-large">
           EP.2
-        </span>
+        </div>
+
+
+        <div>
+
+          <h2>
+            สร้างตัวละครและภาพ
+          </h2>
+
+          <p>
+            สร้าง Character และภาพสำหรับนำไปสร้าง VDO
+          </p>
+
+        </div>
 
       </div>
 
 
-      <h3>
-        สร้าง Character Sheet
-      </h3>
+      <!-- PROMPT 03 -->
+
+      <article class="prompt-card">
 
 
-      <div class="prompt-description">
+        <div class="prompt-top">
 
-        ใช้สำหรับสร้างรายละเอียดตัวละครจาก Script
-        เพื่อให้สามารถนำตัวละครไปใช้ต่อในทุกฉาก
-        และช่วยรักษาความเหมือนของตัวละคร
+          <div class="prompt-number">
+            3
+          </div>
 
-      </div>
+          <div class="prompt-badge">
+            Character
+          </div>
+
+        </div>
 
 
-      <div class="prompt-label">
-        PROMPT
-      </div>
+        <h3>
+          Prompt ที่ 3 : สร้าง Character Sheet
+        </h3>
 
 
-      <div
-        class="prompt-box"
-        id="text-03">ช่วยสร้าง Prompt สำหรับสร้าง Character Sheet
+        <div class="prompt-description">
+
+          ใช้สำหรับสร้างรายละเอียดตัวละครจาก Script
+          เพื่อให้สามารถนำตัวละครไปใช้ต่อในทุกฉาก
+          และช่วยรักษาความเหมือนของตัวละคร
+
+        </div>
+
+
+        <button
+          class="example-toggle"
+          onclick="toggleExample(this)">
+
+          <span>
+            ✦ ตัวอย่างผลลัพธ์ที่ได้
+          </span>
+
+          <span>
+            ▼
+          </span>
+
+        </button>
+
+
+        <div class="example-content">
+
+          Character Sheet ที่มีรายละเอียด
+          ใบหน้า ทรงผม รูปร่าง เสื้อผ้า บุคลิก
+          และลักษณะเด่นของตัวละคร
+
+        </div>
+
+
+        <div class="prompt-label">
+          PROMPT
+        </div>
+
+
+        <div
+          class="prompt-box"
+          id="prompt-03">ช่วยสร้าง Prompt สำหรับสร้าง Character Sheet
 ของตัวละครจาก Script นี้
 
 โดยระบุรายละเอียด:
@@ -950,60 +1719,85 @@
 ให้เหมือนกันในทุกฉาก</div>
 
 
-      <button
-        class="copy-btn"
-        onclick="copyText('text-03', this)">
+        <div class="button-row">
 
-        📋 Copy Prompt
+          <button
+            class="copy-btn"
+            onclick="copyPrompt('prompt-03', this)">
 
-      </button>
+            📋 Copy Prompt
 
-    </div>
+          </button>
 
+        </div>
 
-    <!-- ==================================================
-         PROMPT 04
-    ================================================== -->
-
-    <div
-      class="prompt-card"
-      id="prompt-04">
-
-      <div class="prompt-top">
-
-        <span class="prompt-number">
-          PROMPT 04
-        </span>
-
-        <span class="ep-tag">
-          EP.2
-        </span>
-
-      </div>
+      </article>
 
 
-      <h3>
-        สร้างภาพตัวละคร
-      </h3>
+      <!-- PROMPT 04 -->
+
+      <article class="prompt-card">
 
 
-      <div class="prompt-description">
+        <div class="prompt-top">
 
-        นำ Character Sheet ไปสร้างภาพตัวละคร
-        เพื่อใช้เป็น Character Reference
-        สำหรับสร้าง Storyboard และ VDO
+          <div class="prompt-number">
+            4
+          </div>
 
-      </div>
+          <div class="prompt-badge">
+            สร้างภาพ
+          </div>
+
+        </div>
 
 
-      <div class="prompt-label">
-        PROMPT
-      </div>
+        <h3>
+          Prompt ที่ 4 : สร้างภาพตัวละคร
+        </h3>
 
 
-      <div
-        class="prompt-box"
-        id="text-04">สร้างภาพตัวละครจาก Character Sheet ที่กำหนด
+        <div class="prompt-description">
+
+          นำ Character Sheet ไปสร้างภาพตัวละคร
+          เพื่อใช้เป็น Character Reference
+          สำหรับสร้าง Storyboard และ VDO
+
+        </div>
+
+
+        <button
+          class="example-toggle"
+          onclick="toggleExample(this)">
+
+          <span>
+            ✦ ตัวอย่างผลลัพธ์ที่ได้
+          </span>
+
+          <span>
+            ▼
+          </span>
+
+        </button>
+
+
+        <div class="example-content">
+
+          ภาพตัวละครที่มีใบหน้า เสื้อผ้า
+          และเอกลักษณ์สอดคล้องกับ Character Sheet
+          เพื่อใช้เป็น Reference ต่อไป
+
+        </div>
+
+
+        <div class="prompt-label">
+          PROMPT
+        </div>
+
+
+        <div
+          class="prompt-box"
+          id="prompt-04">สร้างภาพตัวละครจาก Character Sheet ที่กำหนด
 
 ต้องรักษารายละเอียดของตัวละครให้เหมือนเดิม ได้แก่:
 
@@ -1026,143 +1820,230 @@
 และ VDO ด้วย AI</div>
 
 
-      <button
-        class="copy-btn"
-        onclick="copyText('text-04', this)">
+        <div class="button-row">
 
-        📋 Copy Prompt
+          <button
+            class="copy-btn"
+            onclick="copyPrompt('prompt-04', this)">
 
-      </button>
+            📋 Copy Prompt
 
-    </div>
+          </button>
+
+        </div>
+
+      </article>
+
+
+    </section>
 
 
     <!-- ==================================================
          EP.3
     ================================================== -->
 
-    <div
-      id="ep3"
-      class="section-title">
-
-      EP.3 — สร้าง Storyboard
-
-    </div>
+    <section
+      class="ep-section"
+      id="ep3">
 
 
-    <div class="coming-soon">
+      <div class="ep-header">
 
-      <div class="icon">
-        🎬
+        <div class="ep-number-large">
+          EP.3
+        </div>
+
+
+        <div>
+
+          <h2>
+            สร้าง Storyboard
+          </h2>
+
+          <p>
+            เปลี่ยน Script ให้เป็นภาพ Storyboard
+            สำหรับแต่ละฉาก
+          </p>
+
+        </div>
+
       </div>
 
 
-      <h3>
-        Prompt 05 — สร้าง Storyboard
-      </h3>
+      <div class="coming-soon">
+
+        <div class="coming-soon-icon">
+          🎬
+        </div>
+
+        <h3>
+          Prompt ที่ 5 — สร้าง Storyboard
+        </h3>
+
+        <p>
+          กำลังเตรียม Prompt สำหรับ EP.3
+        </p>
+
+      </div>
 
 
-      <p>
-        กำลังเตรียม Prompt สำหรับ EP.3
-      </p>
-
-    </div>
+    </section>
 
 
     <!-- ==================================================
          EP.4
     ================================================== -->
 
-    <div
-      id="ep4"
-      class="section-title">
-
-      EP.4 — สร้าง Video Prompt
-
-    </div>
+    <section
+      class="ep-section"
+      id="ep4">
 
 
-    <div class="coming-soon">
+      <div class="ep-header">
 
-      <div class="icon">
-        ✨
+        <div class="ep-number-large">
+          EP.4
+        </div>
+
+
+        <div>
+
+          <h2>
+            สร้าง Video Prompt
+          </h2>
+
+          <p>
+            เปลี่ยน Storyboard ให้เป็น Prompt
+            สำหรับสร้าง VDO
+          </p>
+
+        </div>
+
       </div>
 
 
-      <h3>
-        Prompt 06 — สร้าง Video Prompt
-      </h3>
+      <div class="coming-soon">
+
+        <div class="coming-soon-icon">
+          ✨
+        </div>
+
+        <h3>
+          Prompt ที่ 6 — สร้าง Video Prompt
+        </h3>
+
+        <p>
+          กำลังเตรียม Prompt สำหรับ EP.4
+        </p>
+
+      </div>
 
 
-      <p>
-        กำลังเตรียม Prompt สำหรับ EP.4
-      </p>
-
-    </div>
+    </section>
 
 
     <!-- ==================================================
          EP.5
     ================================================== -->
 
-    <div
-      id="ep5"
-      class="section-title">
-
-      EP.5 — สร้าง VDO ด้วย AI
-
-    </div>
+    <section
+      class="ep-section"
+      id="ep5">
 
 
-    <div class="coming-soon">
+      <div class="ep-header">
 
-      <div class="icon">
-        🎥
+        <div class="ep-number-large">
+          EP.5
+        </div>
+
+
+        <div>
+
+          <h2>
+            สร้าง VDO ด้วย AI
+          </h2>
+
+          <p>
+            นำ Character Reference + Storyboard
+            + Video Prompt ไปสร้าง VDO
+          </p>
+
+        </div>
+
       </div>
 
 
-      <h3>
-        Prompt 07 — สร้าง VDO ด้วย AI
-      </h3>
+      <div class="coming-soon">
+
+        <div class="coming-soon-icon">
+          🎥
+        </div>
+
+        <h3>
+          Prompt ที่ 7 — สร้าง VDO ด้วย AI
+        </h3>
+
+        <p>
+          กำลังเตรียม Prompt สำหรับ EP.5
+        </p>
+
+      </div>
 
 
-      <p>
-        กำลังเตรียม Prompt สำหรับ EP.5
-      </p>
-
-    </div>
+    </section>
 
 
     <!-- ==================================================
          EP.6
     ================================================== -->
 
-    <div
-      id="ep6"
-      class="section-title">
-
-      EP.6 — ตัดต่อและรวมคลิป
-
-    </div>
+    <section
+      class="ep-section"
+      id="ep6">
 
 
-    <div class="coming-soon">
+      <div class="ep-header">
 
-      <div class="icon">
-        🎞️
+        <div class="ep-number-large">
+          EP.6
+        </div>
+
+
+        <div>
+
+          <h2>
+            ตัดต่อและรวมคลิป
+          </h2>
+
+          <p>
+            รวมคลิป ตัดต่อ และเตรียม VDO
+            ให้พร้อมใช้งาน
+          </p>
+
+        </div>
+
       </div>
 
 
-      <h3>
-        Prompt สำหรับ EP.6
-      </h3>
+      <div class="coming-soon">
+
+        <div class="coming-soon-icon">
+          🎞️
+        </div>
+
+        <h3>
+          Prompt สำหรับ EP.6
+        </h3>
+
+        <p>
+          กำลังเตรียม Prompt สำหรับ EP.6
+        </p>
+
+      </div>
 
 
-      <p>
-        กำลังเตรียม Prompt สำหรับ EP.6
-      </p>
-
-    </div>
+    </section>
 
 
   </main>
@@ -1185,7 +2066,12 @@
 
   <script>
 
-    function copyText(
+
+    /* ==================================================
+       COPY PROMPT
+    ================================================== */
+
+    function copyPrompt(
       elementId,
       button
     ) {
@@ -1201,19 +2087,22 @@
 
         .then(() => {
 
-          button.innerText =
+          button.classList.add("copied");
+
+          button.innerHTML =
             "✓ คัดลอก Prompt แล้ว";
 
 
           setTimeout(() => {
 
-            button.innerText =
+            button.classList.remove("copied");
+
+            button.innerHTML =
               "📋 Copy Prompt";
 
           }, 2000);
 
         })
-
 
         .catch(() => {
 
@@ -1224,6 +2113,98 @@
         });
 
     }
+
+
+    /* ==================================================
+       EXAMPLE TOGGLE
+    ================================================== */
+
+    function toggleExample(button) {
+
+      const content =
+        button.nextElementSibling;
+
+
+      content.classList.toggle("show");
+
+
+      const arrow =
+        button.querySelector("span:last-child");
+
+
+      if (
+        content.classList.contains("show")
+      ) {
+
+        arrow.textContent =
+          "▲";
+
+      } else {
+
+        arrow.textContent =
+          "▼";
+
+      }
+
+    }
+
+
+    /* ==================================================
+       ACTIVE EP MENU
+    ================================================== */
+
+    const sections =
+      document.querySelectorAll(".ep-section");
+
+    const navLinks =
+      document.querySelectorAll(".nav a");
+
+
+    window.addEventListener(
+      "scroll",
+      () => {
+
+        let current =
+          "ep1";
+
+
+        sections.forEach(section => {
+
+          const sectionTop =
+            section.offsetTop - 150;
+
+
+          if (
+            window.scrollY >= sectionTop
+          ) {
+
+            current =
+              section.id;
+
+          }
+
+        });
+
+
+        navLinks.forEach(link => {
+
+          link.classList.remove("active");
+
+
+          if (
+            link.getAttribute("href") ===
+            "#" + current
+          ) {
+
+            link.classList.add("active");
+
+          }
+
+        });
+
+      }
+    );
+
 
   </script>
 
