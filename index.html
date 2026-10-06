@@ -23,9 +23,10 @@
       color: #333;
     }
 
-    /* =========================
+
+    /* ==================================================
        HEADER
-    ========================= */
+    ================================================== */
 
     header {
       background: linear-gradient(135deg, #f45ca5, #a45de8);
@@ -47,15 +48,15 @@
     }
 
 
-    /* =========================
-       NAV
-    ========================= */
+    /* ==================================================
+       NAVIGATION
+    ================================================== */
 
     .nav-wrapper {
       position: sticky;
       top: 0;
       z-index: 100;
-      background: rgba(255,255,255,0.96);
+      background: rgba(255,255,255,0.97);
       backdrop-filter: blur(10px);
       border-bottom: 1px solid #eee;
       overflow-x: auto;
@@ -77,7 +78,7 @@
       padding: 10px 18px;
       border-radius: 30px;
       font-size: 14px;
-      transition: 0.2s;
+      transition: all 0.2s ease;
     }
 
     .nav a:hover {
@@ -92,9 +93,9 @@
     }
 
 
-    /* =========================
-       CONTENT
-    ========================= */
+    /* ==================================================
+       MAIN CONTENT
+    ================================================== */
 
     .container {
       max-width: 900px;
@@ -119,9 +120,9 @@
     }
 
 
-    /* =========================
+    /* ==================================================
        PROMPT CARD
-    ========================= */
+    ================================================== */
 
     .prompt-card {
       background: white;
@@ -173,9 +174,9 @@
     }
 
 
-    /* =========================
-       PROMPT BOX
-    ========================= */
+    /* ==================================================
+       PROMPT LABEL
+    ================================================== */
 
     .prompt-label {
       font-size: 13px;
@@ -184,34 +185,88 @@
       font-weight: 600;
     }
 
+
+    /* ==================================================
+       PROMPT BOX
+       จำกัดความสูง + เลื่อนภายในกล่อง
+    ================================================== */
+
     .prompt-box {
       background: #f8f7fa;
       border: 1px solid #ece9ef;
       border-radius: 15px;
+
       padding: 20px;
+
       white-space: pre-wrap;
       line-height: 1.8;
+
       font-size: 14px;
       color: #444;
-      overflow-x: auto;
+
+      /* จำกัดความสูง */
+      height: 260px;
+
+      /* เลื่อนภายในกล่อง */
+      overflow-y: auto;
+      overflow-x: hidden;
+
+      /* รองรับการเลื่อนบนมือถือ */
+      -webkit-overflow-scrolling: touch;
     }
 
 
-    /* =========================
+    /* ==================================================
+       SCROLLBAR
+    ================================================== */
+
+    .prompt-box::-webkit-scrollbar {
+      width: 7px;
+    }
+
+    .prompt-box::-webkit-scrollbar-track {
+      background: #eeeeF3;
+      border-radius: 10px;
+    }
+
+    .prompt-box::-webkit-scrollbar-thumb {
+      background: #e5a1c2;
+      border-radius: 10px;
+    }
+
+    .prompt-box::-webkit-scrollbar-thumb:hover {
+      background: #d978a7;
+    }
+
+
+    /* ==================================================
        COPY BUTTON
-    ========================= */
+    ================================================== */
 
     .copy-btn {
       margin-top: 15px;
+
       border: none;
-      background: linear-gradient(135deg, #f45ca5, #b05de8);
+
+      background: linear-gradient(
+        135deg,
+        #f45ca5,
+        #b05de8
+      );
+
       color: white;
+
       padding: 12px 22px;
+
       border-radius: 11px;
+
       cursor: pointer;
+
       font-size: 14px;
+
       font-weight: 600;
-      transition: 0.2s;
+
+      transition: all 0.2s ease;
     }
 
     .copy-btn:hover {
@@ -219,35 +274,50 @@
       opacity: 0.92;
     }
 
-
-    /* =========================
-       SECTION DIVIDER
-    ========================= */
-
-    .section-title {
-      text-align: center;
-      margin: 45px 0 25px;
-      color: #d83f80;
-      font-size: 18px;
-      font-weight: 700;
+    .copy-btn:active {
+      transform: scale(0.98);
     }
 
 
-    /* =========================
+    /* ==================================================
+       SECTION TITLE
+    ================================================== */
+
+    .section-title {
+      text-align: center;
+      margin: 55px 0 25px;
+
+      color: #d83f80;
+
+      font-size: 18px;
+
+      font-weight: 700;
+
+      scroll-margin-top: 90px;
+    }
+
+
+    /* ==================================================
        COMING SOON
-    ========================= */
+    ================================================== */
 
     .coming-soon {
       background: white;
+
       border: 1px dashed #e5bfd3;
+
       border-radius: 20px;
+
       padding: 35px 25px;
+
       text-align: center;
+
       margin-bottom: 28px;
     }
 
     .coming-soon .icon {
       font-size: 40px;
+
       margin-bottom: 10px;
     }
 
@@ -257,27 +327,33 @@
 
     .coming-soon p {
       color: #888;
+
       margin: 0;
     }
 
 
-    /* =========================
+    /* ==================================================
        FOOTER
-    ========================= */
+    ================================================== */
 
     footer {
       text-align: center;
+
       padding: 30px 20px;
+
       color: #999;
+
       font-size: 13px;
+
       border-top: 1px solid #eee;
+
       background: white;
     }
 
 
-    /* =========================
+    /* ==================================================
        MOBILE
-    ========================= */
+    ================================================== */
 
     @media (max-width: 600px) {
 
@@ -303,6 +379,7 @@
 
       .prompt-card {
         padding: 20px;
+
         border-radius: 18px;
       }
 
@@ -312,7 +389,11 @@
 
       .prompt-box {
         font-size: 13px;
+
         padding: 16px;
+
+        /* บนมือถือให้เตี้ยลงอีกนิด */
+        height: 230px;
       }
 
       .copy-btn {
@@ -322,15 +403,16 @@
     }
 
   </style>
+
 </head>
 
 
 <body>
 
 
-  <!-- =========================
+  <!-- ==================================================
        HEADER
-  ========================= -->
+  ================================================== -->
 
   <header>
 
@@ -345,9 +427,9 @@
   </header>
 
 
-  <!-- =========================
+  <!-- ==================================================
        NAVIGATION
-  ========================= -->
+  ================================================== -->
 
   <div class="nav-wrapper">
 
@@ -388,14 +470,16 @@
   </div>
 
 
-  <!-- =========================
-       MAIN CONTENT
-  ========================= -->
+  <!-- ==================================================
+       MAIN
+  ================================================== -->
 
   <main
     class="container"
     id="top">
 
+
+    <!-- PAGE TITLE -->
 
     <div class="page-title">
 
@@ -412,9 +496,9 @@
     </div>
 
 
-    <!-- =========================
+    <!-- ==================================================
          PROMPT 01
-    ========================= -->
+    ================================================== -->
 
     <div
       class="prompt-card"
@@ -437,9 +521,11 @@
       </h3>
 
       <div class="prompt-description">
+
         ใช้สำหรับให้ AI ช่วยคิดและเขียน Script
-        จากไอเดียของเรา โดยไม่จำเป็นต้องเขียน Prompt
-        ให้ซับซ้อน
+        จากไอเดียของเรา
+        โดยไม่จำเป็นต้องเขียน Prompt ให้ซับซ้อน
+
       </div>
 
       <div class="prompt-label">
@@ -487,15 +573,17 @@
       <button
         class="copy-btn"
         onclick="copyText('text-01', this)">
+
         📋 Copy Prompt
+
       </button>
 
     </div>
 
 
-    <!-- =========================
+    <!-- ==================================================
          PROMPT 02
-    ========================= -->
+    ================================================== -->
 
     <div
       class="prompt-card"
@@ -518,8 +606,10 @@
       </h3>
 
       <div class="prompt-description">
+
         นำ Script ที่ได้มาแบ่งเป็นฉากสำหรับสร้าง VDO
         โดยแต่ละฉากมีความยาวไม่เกิน 10 วินาที
+
       </div>
 
       <div class="prompt-label">
@@ -563,15 +653,17 @@
       <button
         class="copy-btn"
         onclick="copyText('text-02', this)">
+
         📋 Copy Prompt
+
       </button>
 
     </div>
 
 
-    <!-- =========================
+    <!-- ==================================================
          PROMPT 03
-    ========================= -->
+    ================================================== -->
 
     <div
       class="prompt-card"
@@ -594,9 +686,11 @@
       </h3>
 
       <div class="prompt-description">
+
         ใช้สำหรับสร้างรายละเอียดตัวละครจาก Script
         เพื่อให้สามารถนำตัวละครไปใช้ต่อในทุกฉาก
         และช่วยรักษาความเหมือนของตัวละคร
+
       </div>
 
       <div class="prompt-label">
@@ -635,15 +729,17 @@
       <button
         class="copy-btn"
         onclick="copyText('text-03', this)">
+
         📋 Copy Prompt
+
       </button>
 
     </div>
 
 
-    <!-- =========================
+    <!-- ==================================================
          PROMPT 04
-    ========================= -->
+    ================================================== -->
 
     <div
       class="prompt-card"
@@ -666,9 +762,11 @@
       </h3>
 
       <div class="prompt-description">
+
         นำ Character Sheet ไปสร้างภาพตัวละคร
         เพื่อใช้เป็น Character Reference
         สำหรับสร้าง Storyboard และ VDO
+
       </div>
 
       <div class="prompt-label">
@@ -702,15 +800,17 @@
       <button
         class="copy-btn"
         onclick="copyText('text-04', this)">
+
         📋 Copy Prompt
+
       </button>
 
     </div>
 
 
-    <!-- =========================
+    <!-- ==================================================
          EP.3
-    ========================= -->
+    ================================================== -->
 
     <div
       id="ep3"
@@ -721,8 +821,7 @@
     </div>
 
 
-    <div
-      class="coming-soon">
+    <div class="coming-soon">
 
       <div class="icon">
         🎬
@@ -739,9 +838,9 @@
     </div>
 
 
-    <!-- =========================
+    <!-- ==================================================
          EP.4
-    ========================= -->
+    ================================================== -->
 
     <div
       id="ep4"
@@ -752,8 +851,7 @@
     </div>
 
 
-    <div
-      class="coming-soon">
+    <div class="coming-soon">
 
       <div class="icon">
         ✨
@@ -770,9 +868,9 @@
     </div>
 
 
-    <!-- =========================
+    <!-- ==================================================
          EP.5
-    ========================= -->
+    ================================================== -->
 
     <div
       id="ep5"
@@ -783,8 +881,7 @@
     </div>
 
 
-    <div
-      class="coming-soon">
+    <div class="coming-soon">
 
       <div class="icon">
         🎥
@@ -801,9 +898,9 @@
     </div>
 
 
-    <!-- =========================
+    <!-- ==================================================
          EP.6
-    ========================= -->
+    ================================================== -->
 
     <div
       id="ep6"
@@ -814,8 +911,7 @@
     </div>
 
 
-    <div
-      class="coming-soon">
+    <div class="coming-soon">
 
       <div class="icon">
         🎞️
@@ -835,9 +931,9 @@
   </main>
 
 
-  <!-- =========================
+  <!-- ==================================================
        FOOTER
-  ========================= -->
+  ================================================== -->
 
   <footer>
 
@@ -846,16 +942,18 @@
   </footer>
 
 
-  <!-- =========================
+  <!-- ==================================================
        JAVASCRIPT
-  ========================= -->
+  ================================================== -->
 
   <script>
 
     function copyText(elementId, button) {
 
       const text =
-        document.getElementById(elementId).innerText;
+        document
+          .getElementById(elementId)
+          .innerText;
 
       navigator.clipboard
         .writeText(text)
@@ -870,6 +968,13 @@
               "📋 Copy Prompt";
 
           }, 2000);
+
+        })
+        .catch(() => {
+
+          alert(
+            "ไม่สามารถคัดลอกอัตโนมัติได้ กรุณาลองใหม่อีกครั้ง"
+          );
 
         });
 
