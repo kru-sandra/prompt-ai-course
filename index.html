@@ -818,6 +818,84 @@
         10px;
     }
 
+    /* ==================================================
+       EXAMPLE CODE BOX + COPY ICON
+    ================================================== */
+
+    .example-codebox {
+      position: relative;
+      margin: 10px 0 10px;
+      background: #f7f7f7;
+      border: 1px solid #dedede;
+      border-radius: 20px;
+      overflow: hidden;
+    }
+
+    .example-code-header {
+      height: 54px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 18px;
+      color: #111;
+      background: #f7f7f7;
+      border-bottom: 1px solid #e8e8e8;
+      font-size: 14px;
+      font-weight: 500;
+    }
+
+    .example-code-title {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+    }
+
+    .example-code-icon {
+      font-family: monospace;
+      font-size: 17px;
+      font-weight: 700;
+    }
+
+    .example-copy-icon {
+      width: 42px;
+      height: 42px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border: none;
+      background: transparent;
+      color: #111;
+      border-radius: 10px;
+      cursor: pointer;
+      font-size: 24px;
+      transition: .2s ease;
+    }
+
+    .example-copy-icon:hover {
+      background: #e9e9e9;
+    }
+
+    .example-copy-icon.copied {
+      color: #169b62;
+      font-size: 19px;
+    }
+
+    .example-codebox .prompt-box {
+      height: 360px;
+      margin: 0;
+      border: none;
+      border-radius: 0;
+      background: #f7f7f7;
+      padding: 18px 20px 22px;
+    }
+
+    @media (max-width: 650px) {
+      .example-codebox .prompt-box {
+        height: 300px;
+        padding: 15px;
+      }
+    }
+
     .prompt-box::-webkit-scrollbar-thumb {
 
       background:
@@ -1797,7 +1875,19 @@ Script:
 
           <strong>Character 1 — ป้าสมใจ</strong>
 
-          <div class="prompt-box" id="example-prompt-03-01">CHARACTER SHEET — ป้าสมใจ
+          <div class="example-codebox">
+            <div class="example-code-header">
+              <div class="example-code-title">
+                <span class="example-code-icon">&lt;/&gt;</span>
+                <span>ข้อความธรรมดา</span>
+              </div>
+              <button
+                class="example-copy-icon"
+                onclick="copyPrompt('example-prompt-03-01', this)"
+                aria-label="Copy Prompt"
+                title="Copy Prompt">▢</button>
+            </div>
+            <div class="prompt-box" id="example-prompt-03-01">CHARACTER SHEET — ป้าสมใจ
 
 Create a full-body Character Reference Sheet of “ป้าสมใจ”, a Thai Isan woman in her late 50s to early 60s.
 
@@ -1876,14 +1966,23 @@ Professional character reference photography.
 No other people.
 No text.
 No props covering the character.</div>
-
-          <div class="button-row">
-            <button class="copy-btn" onclick="copyPrompt('example-prompt-03-01', this)">📋 Copy Prompt</button>
           </div>
 
           <strong>Character 2 — ป้าทอง</strong>
 
-          <div class="prompt-box" id="example-prompt-03-02">CHARACTER SHEET — ป้าทอง
+          <div class="example-codebox">
+            <div class="example-code-header">
+              <div class="example-code-title">
+                <span class="example-code-icon">&lt;/&gt;</span>
+                <span>ข้อความธรรมดา</span>
+              </div>
+              <button
+                class="example-copy-icon"
+                onclick="copyPrompt('example-prompt-03-02', this)"
+                aria-label="Copy Prompt"
+                title="Copy Prompt">▢</button>
+            </div>
+            <div class="prompt-box" id="example-prompt-03-02">CHARACTER SHEET — ป้าทอง
 
 Create a full-body Character Reference Sheet of “ป้าทอง”, a Thai Isan woman in her late 50s to early 60s.
 
@@ -1965,14 +2064,23 @@ Professional character reference photography.
 No other people.
 No text.
 No props covering the character.</div>
-
-          <div class="button-row">
-            <button class="copy-btn" onclick="copyPrompt('example-prompt-03-02', this)">📋 Copy Prompt</button>
           </div>
 
           <strong>Character 3 — ป้าน้อย</strong>
 
-          <div class="prompt-box" id="example-prompt-03-03">CHARACTER SHEET — ป้าน้อย
+          <div class="example-codebox">
+            <div class="example-code-header">
+              <div class="example-code-title">
+                <span class="example-code-icon">&lt;/&gt;</span>
+                <span>ข้อความธรรมดา</span>
+              </div>
+              <button
+                class="example-copy-icon"
+                onclick="copyPrompt('example-prompt-03-03', this)"
+                aria-label="Copy Prompt"
+                title="Copy Prompt">▢</button>
+            </div>
+            <div class="prompt-box" id="example-prompt-03-03">CHARACTER SHEET — ป้าน้อย
 
 Create a full-body Character Reference Sheet of “ป้าน้อย”, a Thai Isan woman in her late 50s to early 60s.
 
@@ -2056,9 +2164,6 @@ Professional character reference photography.
 No other people.
 No text.
 No props covering the character.</div>
-
-          <div class="button-row">
-            <button class="copy-btn" onclick="copyPrompt('example-prompt-03-03', this)">📋 Copy Prompt</button>
           </div>
 
         </div>
@@ -2471,16 +2576,24 @@ Character Consistency Lock:
 
           button.classList.add("copied");
 
-          button.innerHTML =
-            "✓ คัดลอก Prompt แล้ว";
+          if (button.classList.contains("example-copy-icon")) {
+            button.innerHTML = "✓";
+            button.setAttribute("aria-label", "คัดลอกแล้ว");
+          } else {
+            button.innerHTML = "✓ คัดลอก Prompt แล้ว";
+          }
 
 
           setTimeout(() => {
 
             button.classList.remove("copied");
 
-            button.innerHTML =
-              "📋 Copy Prompt";
+            if (button.classList.contains("example-copy-icon")) {
+              button.innerHTML = "▢";
+              button.setAttribute("aria-label", "Copy Prompt");
+            } else {
+              button.innerHTML = "📋 Copy Prompt";
+            }
 
           }, 2000);
 
