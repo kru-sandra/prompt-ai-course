@@ -2611,6 +2611,124 @@ OUTPUT:
       </article>
 
 
+      <!-- PROMPT 08 -->
+
+      <article class="prompt-card">
+
+        <div class="prompt-top">
+
+          <div class="prompt-number">
+            8
+          </div>
+
+          <div class="prompt-badge">
+            EP.3 • Video Prompt
+          </div>
+
+        </div>
+
+        <h3>
+          Prompt ที่ 8 : สร้าง Prompt สำหรับสร้าง VDO ใน Google Flow AI
+        </h3>
+
+        <div class="prompt-description">
+          ใช้สำหรับเปลี่ยน Script + Character Reference + Storyboard Reference
+          ให้เป็น Video Prompt พร้อมนำไปใช้ใน Google Flow AI
+        </div>
+
+        <div class="prompt-label">
+          PROMPT
+        </div>
+
+        <div
+          class="prompt-box"
+          id="prompt-08">สร้าง Prompt สำหรับสร้าง VDO ฉากที่ <span class="user-input">[ใส่ฉากที่ต้องการ]</span> ใน Google Flow AI
+
+LANGUAGE RULE:
+- เขียนผลลัพธ์ทั้งหมดเป็นภาษาอังกฤษ
+- ห้ามแปลชื่อไฟล์ Character Sheet และ Storyboard
+- ห้ามแปลชื่อเฉพาะของตัวละคร
+- บทพูดใน Script ให้คงภาษาเดิมตามที่ผู้ใช้ระบุ
+- ให้ใช้คำภาษาไทยเฉพาะคำว่า:
+  “ตัวละครอ้างอิง”
+  “สตอรี่บอร์ดอ้างอิง”
+
+โดยใช้:
+- ชื่อไฟล์ Character Sheet ที่ระบุเป็นภาพตัวละครอ้างอิง
+- ชื่อไฟล์ Storyboard ที่ระบุเป็นภาพ Storyboard อ้างอิง
+
+ต้องแสดงชื่อไฟล์อ้างอิงใน Prompt ทุกครั้ง
+
+ข้อกำหนดสำคัญ:
+- Lock the character's face and overall appearance to the Character Sheet reference
+- Lock each character's voice consistently across all scenes and all video clips
+- Lock the accent and speaking style consistently across all scenes
+- Maintain the character's age, body shape, hairstyle, clothing, accessories, and distinctive features
+- Use the Storyboard Reference as the primary visual guide for composition, camera angle, character position, blocking, and actions
+- Maintain visual and story continuity with previous scenes
+- Dialogue must match the Script exactly and fit the scene duration
+- Do not change the character's face, voice, accent, clothing, or personality unless explicitly instructed
+- Do not add characters that are not included in the Script
+- Do not add dialogue that is not included in the Script
+
+OUTPUT FORMAT:
+
+FLOW AI VIDEO PROMPT
+
+SCENE : [Scene Number]
+DURATION: []
+STYLE: []
+LANGUAGE: Thai Isan dialect
+
+CHARACTER REFERENCES (ตัวละครอ้างอิง):
+- [Character Sheet filename]
+
+STORYBOARD REFERENCE (สตอรี่บอร์ดอ้างอิง):
+- [Storyboard filename]
+
+Then create a complete English VIDEO PROMPT containing:
+
+- Scene
+- Duration
+- Characters
+- Action
+- Emotion
+- Camera
+- Dialogue
+- Voice
+- Audio
+- Environment
+- Visual Style
+- Character Lock
+- Voice Lock
+- Continuity
+- Negative Constraints
+
+IMPORTANT:
+The entire generated VIDEO PROMPT must be written in English,
+except for:
+1. Character names and filenames provided by the user
+2. The exact dialogue/script provided by the user
+3. The labels “ตัวละครอ้างอิง” and “สตอรี่บอร์ดอ้างอิง”
+
+REFERENCE FILE RULE:
+The exact Character Sheet and Storyboard filenames provided by the user must appear in every generated prompt.
+
+Never omit, rename, shorten, translate, or replace the reference filenames.
+
+Never invent a reference filename.</div>
+
+        <div class="button-row">
+          <button
+            class="copy-btn"
+            onclick="copyPrompt('prompt-08', this)">
+            📋 Copy Prompt
+          </button>
+        </div>
+
+      </article>
+
+
     </section>
 
 
